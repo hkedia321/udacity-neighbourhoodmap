@@ -5,6 +5,7 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
+import { Link } from 'react-router-dom';
 // create Google Maps object. The Markers are rendered by mapping the "places" object received in props.
 const MyMapComponent = withGoogleMap(props => (
   <GoogleMap defaultZoom={18} defaultCenter={{ lat: 22.6210486, lng: 88.43195509999998 }}>
@@ -19,7 +20,7 @@ const MyMapComponent = withGoogleMap(props => (
             <div>
               <h2>{place.name}</h2>
               <p>{place.address}</p>
-              <a href={"/viewinfo?id=" + place.id}><button>View Photos</button></a>
+              <Link to={"/viewinfo?id=" + place.id}><button>View Photos</button></Link>
             </div>
           </InfoWindow>}
         </Marker>
