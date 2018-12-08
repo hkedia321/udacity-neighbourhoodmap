@@ -7,16 +7,16 @@ class HomePageMap extends Component {
   constructor() {
     super();
     this.state = {
-      places: placesData
+      places: placesData/* holds array of places*/
     }
   }
   // take input from user and filter places
   handleOnInput = (input) =>{
     let places = this.state.places.map((place) => {
       if (place.name.toLowerCase().indexOf(input.toLowerCase()) < 0)
-        place.display = false;
+        place.display = false;// hide this place
       else
-        place.display = true;
+        place.display = true;// show this place
       return place;
     });
     this.setState({places});
@@ -25,19 +25,20 @@ class HomePageMap extends Component {
   onMarkerClick = (placeClicked) => {
     let places = this.state.places.map((place) => {
       if (place.id === placeClicked.id) {
-       place.animation = true;
-       place.selected = true;
+       place.animation = true;// temporary animation
+       place.selected = true;// for displaying info window
+       // remove animation automatically after 1sec
        this.removeAnimationTimeOut();
       }
       else {
-        place.animation = false;
-        place.selected = false;
+        place.animation = false;// remove animation
+        place.selected = false;// hide info window
       }
       return place;
     });
     this.setState({places});
   }
-  //
+  // close all info windows
   closeInfoWindow = () => {
     let places = this.state.places.map((place) => {
       place.selected = false;

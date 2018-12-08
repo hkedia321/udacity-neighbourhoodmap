@@ -5,6 +5,7 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
+// create Google Maps object. The Markers are rendered by mapping the "places" object received in props.
 const MyMapComponent = withGoogleMap(props => (
   <GoogleMap defaultZoom={18} defaultCenter={{ lat: 22.6210486, lng: 88.43195509999998 }}>
     {props.places.map((place) => place.display?(
@@ -27,7 +28,6 @@ const MyMapComponent = withGoogleMap(props => (
 ));
 class GoogleMapDisplay extends Component {
   render() {
-
     return (
       <MyMapComponent
         places = {this.props.places}

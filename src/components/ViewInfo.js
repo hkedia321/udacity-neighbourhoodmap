@@ -7,19 +7,20 @@ class ViewInfo extends Component {
   constructor() {
     super();
     this.state = {
-      photos: null,
-      error: false,
-      name: ""
+      photos: null,/* holds array of photos*/
+      error: false,/* contains error message if any*/
+      name: ""/* name of the location*/
     }
   }
   // load data from Flickr API
   componentWillMount() {
     var urlParams = new URLSearchParams(window.location.search);
+    let tag = "";
     if (!(urlParams.get('id'))) {
       this.setState({error: "Invalid id parameter provided"});
       return;
     }
-    let tag = "";
+    // extract id from the url
     let id = urlParams.get('id');
     for (let i = 0; i < placesData.length; i++) {
       if (placesData[i].id === id) {
@@ -28,6 +29,7 @@ class ViewInfo extends Component {
         break;
       }
     }
+    // get images from flickr API by passing the "tag" of the location
     axios.get(`https://api.flickr.com/services/rest/`, {
       params: {
         api_key: "fa159dc5a9fdeef0834826bba76bbc74",
@@ -60,6 +62,7 @@ class ViewInfo extends Component {
       <br/><br/>
       <p className="courtesy">Images taken from <a href="https://www.flickr.com/">Flickr</a></p>
       <div className="img-container">
+      {/*Display images*/}
       {this.state.photos && this.state.photos.map((photo) => {
         let url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
         return <a key={photo.id} href={url}><img
@@ -67,8 +70,10 @@ class ViewInfo extends Component {
         alt={photo.title}
         className="img-item" /></a>;
       })}
+      {/*Error message handling*/}
       {this.state.photos && this.state.photos.length === 0 && <div className="zero-photos-container">No Image available for this</div>}
       {this.state.error && <div className="error-container">Error: {this.state.error}</div>}
+      {/*Loading animation*/}
       {this.state.photos===null && this.state.error===false && <div className="loading-div"><img src={LoadingGif} alt="loading" /></div>}
       </div>
       </div>
