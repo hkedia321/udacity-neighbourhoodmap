@@ -1,0 +1,32 @@
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+.img-item {
+  height: 400px;
+  max-width: 100%;
+}
+.back-button {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+.error-container {
+  background-color: #F44336;
+  padding: 20px;
+}
+.zero-photos-container {
+  background-color: #21a5f2;
+  padding: 20px;
+}
+.courtesy {
+  text-align: right;
+  margin-right: 10px;
+}

@@ -23,7 +23,8 @@
 }
 .places-list {
   padding-left: 0px;
-  min-height: 470px;
+  height: 69vh;
+  overflow-y: auto;
 }
 .place-item {
   list-style-type: none;
