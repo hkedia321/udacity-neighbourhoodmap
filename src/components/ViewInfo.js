@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import placesData from './../placesData';
 import LoadingGif from '../images/loading.gif';
 import './viewInfo.css';
@@ -58,7 +59,7 @@ class ViewInfo extends Component {
       <div className="view-info-container">
       <h2 className="center">{this.state.name}</h2>
       <h4 className="center">{this.state.address}</h4>
-      <a href="/"><button className="back-button">&#8678; Go Back</button></a>
+      <Link to="/"><button aria-labelledby="Go Back" className="back-button">&#8678; Go Back</button></Link>
       <br/><br/>
       <p className="courtesy">Images taken from <a href="https://www.flickr.com/">Flickr</a></p>
       <div className="img-container">
