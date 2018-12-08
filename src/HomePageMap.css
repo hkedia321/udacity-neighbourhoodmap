@@ -23,6 +23,7 @@
 }
 .places-list {
   padding-left: 0px;
+  min-height: 470px;
 }
 .place-item {
   list-style-type: none;
@@ -32,4 +33,11 @@
 }
 .place-item:hover {
   background-color: #333;
+}
+.dataCredits {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.dataCredits a {
+  color: #fff;
 }

@@ -19,7 +19,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Neighborhood map - Restaurants</title>
   </head>
   <body>
     <noscript>
@@ -36,5 +36,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+    function gm_authFailure() {
+      document.querySelector('.map-container').innerHTML = '<p>Could not load map: Google Maps authorization failure</p>';
+      }
+    function onerror(){
+      document.querySelector('.map-container').innerHTML = '<p>Could not load map: Google Maps authorization failure</p>';
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTO9JI5ZAivMckVM8xJW5e-CBmN3IpXY" onerror="onerror()"></script>
   </body>
 </html>
