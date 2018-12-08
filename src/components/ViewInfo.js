@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import placesData from './../placesData';
+import LoadingGif from '../images/loading.gif';
 import './viewInfo.css';
 class ViewInfo extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class ViewInfo extends Component {
       name: ""
     }
   }
+  // load data from Flickr API
   componentWillMount() {
     var urlParams = new URLSearchParams(window.location.search);
     if (!(urlParams.get('id'))) {
@@ -67,6 +69,7 @@ class ViewInfo extends Component {
       })}
       {this.state.photos && this.state.photos.length === 0 && <div className="zero-photos-container">No Image available for this</div>}
       {this.state.error && <div className="error-container">Error: {this.state.error}</div>}
+      {this.state.photos===null && this.state.error===false && <div className="loading-div"><img src={LoadingGif} alt="loading" /></div>}
       </div>
       </div>
     )

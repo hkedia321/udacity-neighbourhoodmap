@@ -30,3 +30,14 @@
   text-align: right;
   margin-right: 10px;
 }
+
+@media (max-width: 769px) {
+  .img-item {
+    height: 300px;
+  }
+}
+@media (max-width: 500px) {
+  .img-item {
+    height: 200px;
+  }
+}
